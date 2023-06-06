@@ -35,5 +35,12 @@
                 Calculates an indicator whether or not a vertex is part of a ridge.
             </description>
         </class>
+        <class name="mesh_layers/ObstacleLayer"
+               type="mesh_layers::ObstacleLayer"
+               base_class_type="mesh_map::AbstractLayer">
+            <description>
+                An obstacle layer, comparing a scan simulation of the map to the real scan
+            </description>
+        </class>
     </library>
 </class_libraries>

@@ -429,9 +429,28 @@ void MeshMap::combineVertexCosts()
     const auto& costs = layer.second->costs();
     float min, max;
     mesh_map::getMinMax(costs, min, max);
-    const float norm = max - min;
+    float norm;
+    if (max != min) 
+    {
+      norm = max - min;
+    }
+    else
+    {
+      if (max != 0)
+      {
+        norm = max;
+      }
+      else
+      {
+        norm = 1;
+      }
+    }
     const float factor = private_nh.param<float>(layer.first + "/factor", 1.0);
-    const float norm_factor = factor / norm;
+    float norm_factor = 1;
+    if (norm != 0) 
+    {
+      norm_factor = factor / norm;
+    }
     ROS_INFO_STREAM("Layer \"" << layer.first << "\" max value: " << max << " min value: " << min << " norm: " << norm
                                << " factor: " << factor << " norm factor: " << norm_factor);
 

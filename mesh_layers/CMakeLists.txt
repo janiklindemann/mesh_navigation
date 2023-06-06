@@ -16,6 +16,7 @@ generate_dynamic_reconfigure_options(
   cfg/RoughnessLayer.cfg
   cfg/SteepnessLayer.cfg
   cfg/RidgeLayer.cfg
+  cfg/ObstacleLayer.cfg
 )
 
 catkin_package(
@@ -35,6 +36,7 @@ add_library(${PROJECT_NAME}
   src/inflation_layer.cpp
   src/steepness_layer.cpp
   src/ridge_layer.cpp
+  src/obstacle_layer.cpp
   )
 
 add_dependencies(${PROJECT_NAME}
